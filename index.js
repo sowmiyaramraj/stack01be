@@ -5,7 +5,7 @@ const auth=require("./module/authmodule");
 const userRouter=require("./router/userrouter");
 const registerrouter=require("./router/registerrouter");
 const questionrouter=require("./router/questionrouter");
-const questionmodule=require("./module/questionmodule");
+const companyRouter=require("./router/companyrouter");
 const mongo=require("./connect");
 dotenv.config();
 mongo.connect();
@@ -18,6 +18,8 @@ app.use("/register",registerrouter);
 app.use("/",auth.authenticateuser);
 app.use("/question",questionrouter);
 app.use("/user",userRouter);
+app.use("/companies",companyRouter);
+
 
 
 app.listen(process.env.PORT || 3001);
