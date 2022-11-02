@@ -2,7 +2,7 @@ const express=require("express");
 const cors=require("cors");
 const dotenv=require("dotenv");
 const auth=require("./module/authmodule");
-// const employeeRouter=require("./router/employeerouter");
+const userRouter=require("./router/userrouter");
 const registerrouter=require("./router/registerrouter");
 const questionrouter=require("./router/questionrouter");
 const questionmodule=require("./module/questionmodule");
@@ -17,7 +17,7 @@ app.use(cors());
 app.use("/register",registerrouter);
 app.use("/",auth.authenticateuser);
 app.use("/question",questionrouter);
-// app.use("/employees",employeeRouter);
+app.use("/user",userRouter);
 
 
 app.listen(process.env.PORT || 3001);

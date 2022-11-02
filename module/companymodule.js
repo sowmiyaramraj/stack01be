@@ -3,7 +3,7 @@ const {ObjectId}= require("mongodb");
 
 module.exports.getcompanies=async(req,res,next)=>{
     try{
-        const getemployees= await mongo.selectedDb
+        const getcompanies= await mongo.selectedDb
         .collection("companies")
         .find().toArray();
         res.send(getcompanies);
@@ -30,10 +30,10 @@ module.exports.updatecompanies=async(req,res,next)=>{
    }
 };
 
-module.exports.createEmployees=async(req,res,next)=>{
+module.exports.createcompanies=async(req,res,next)=>{
    try{
    const insertedresponse=await mongo.selectedDb
-   .collection("employee")
+   .collection("companies")
    .insertOne(req.body);
    res.send(insertedresponse);
    }
@@ -43,11 +43,11 @@ module.exports.createEmployees=async(req,res,next)=>{
    }
 };
 
-module.exports.deleteEmployees=async(req,res,next)=>{
+module.exports.deletecompanies=async(req,res,next)=>{
     try{
         const id=req.params.id;
         const deletedresponce=await mongo.selectedDb
-        .collection("employee")
+        .collection("companies")
         .remove({_id:ObjectId(id)});
         res.send(deletedresponce);
     } catch(err){

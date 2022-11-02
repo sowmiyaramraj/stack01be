@@ -6,7 +6,7 @@ const auth=require("../module/authmodule");
 
 router.get("/get",questionmodule.getquestion);
 
-router.put("/update/:employeeid",auth.authorizeuser,questionmodule.updatequestion);
+router.put("/update/:questionid",auth.authorizeuser,questionmodule.updatequestion);
 
 router.delete("/delete/:id",auth.authorizeuser,questionmodule.deletequestion);
 
